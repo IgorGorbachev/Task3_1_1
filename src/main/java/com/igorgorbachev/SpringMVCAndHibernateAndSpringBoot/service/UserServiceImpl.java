@@ -11,10 +11,14 @@ import java.util.Comparator;
 import java.util.List;
 
 @Component
-public class UserServiceDaoImpl implements UserServiceDao {
+public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserDao userDao;
+
+    private final UserDao userDao;
+
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @Transactional
     @Override

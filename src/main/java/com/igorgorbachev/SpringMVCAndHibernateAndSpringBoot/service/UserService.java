@@ -6,7 +6,7 @@ import com.igorgorbachev.SpringMVCAndHibernateAndSpringBoot.model.User;
 
 import java.util.List;
 
-public interface UserServiceDao {
+public interface UserService {
     void addUser(User user);
     void changeUser(User user);
     void deleteUser(User user);

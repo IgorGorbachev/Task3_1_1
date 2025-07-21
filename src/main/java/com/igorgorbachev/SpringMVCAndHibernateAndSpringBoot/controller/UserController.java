@@ -1,7 +1,7 @@
 package com.igorgorbachev.SpringMVCAndHibernateAndSpringBoot.controller;
 
 import com.igorgorbachev.SpringMVCAndHibernateAndSpringBoot.model.User;
-import com.igorgorbachev.SpringMVCAndHibernateAndSpringBoot.service.UserServiceDao;
+import com.igorgorbachev.SpringMVCAndHibernateAndSpringBoot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +15,12 @@ import java.util.List;
 @Controller
 public class UserController {
 
-    @Autowired
-    private UserServiceDao userService;
+
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/")
     public String showUsers(Model model) {
@@ -47,7 +51,6 @@ public class UserController {
         userService.deleteUser(user);
         return "redirect:/";
     }
-
 
 
 }
